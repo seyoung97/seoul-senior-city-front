@@ -1,0 +1,28 @@
+// 공통 layout size
+$LAYOUT_MAX_WIDTH: 480px;
+$HEADER_HEIGHT: 64px;
+$FOOTER_HEIGHT: 64px;
+
+// 페이지 내부 여백
+$PAGE_PADDING: 16px;
+$SECTION_MARGIN: 24px;
+$BLOCK_SPACING: 16px;
+
+// 텍스트 관련 spacing
+$TITLE_FONT_SIZE: 20px;
+$SUBTITLE_FONT_SIZE: 16px;
+$BODY_FONT_SIZE: 14px;
+$LINE_HEIGHT: 1.6;
+
+:export {
+  layoutMaxWidth: $LAYOUT_MAX_WIDTH;
+  headerHeight: $HEADER_HEIGHT;
+  footerHeight: $FOOTER_HEIGHT;
+  pagePadding: $PAGE_PADDING;
+  sectionMargin: $SECTION_MARGIN;
+  blockSpacing: $BLOCK_SPACING;
+  titleFontSize: $TITLE_FONT_SIZE;
+  subtitleFontSize: $SUBTITLE_FONT_SIZE;
+  bodyFontSize: $BODY_FONT_SIZE;
+  lineHeight: $LINE_HEIGHT;
+}
