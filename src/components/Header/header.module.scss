@@ -1,0 +1,40 @@
+@use '@/styles/mixins/flexbox' as *;
+@use '@/styles/constants/colors' as colors;
+
+.header {
+  @include flex(space-between, center);
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100%;
+  background-color: rgba(colors.$C_BG_DEFAULT, 0.5);
+
+  .logoWrapper {
+    @include flex(flex-start,center);
+    width: 20%;
+    min-width: 200px;
+    max-width: 300px;
+    height: 56px;
+
+    .logo {
+      width: 36px;
+      height: 36px;
+    }
+
+    .title {
+      padding-left: 4px;
+      margin-top: 4px;
+      font-weight: 500;
+    }
+  }
+
+  .iconWrapper {
+    padding-top: 6px;
+    padding-right: 5px;
+
+    .icon {
+      filter: invert(59%) sepia(11%) saturate(338%) hue-rotate(182deg) brightness(94%) contrast(93%);
+    }
+  }
+}

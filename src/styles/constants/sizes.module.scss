@@ -1,5 +1,6 @@
 // 공통 layout size
 $LAYOUT_MAX_WIDTH: 480px;
+$LAYOUT_PADDING_HORIZONTAL:16px;
 $HEADER_HEIGHT: 64px;
 $FOOTER_HEIGHT: 64px;
 
@@ -16,6 +17,7 @@ $LINE_HEIGHT: 1.6;
 
 :export {
   layoutMaxWidth: $LAYOUT_MAX_WIDTH;
+  layoutPaddingHorizontal:$LAYOUT_PADDING_HORIZONTAL;
   headerHeight: $HEADER_HEIGHT;
   footerHeight: $FOOTER_HEIGHT;
   pagePadding: $PAGE_PADDING;

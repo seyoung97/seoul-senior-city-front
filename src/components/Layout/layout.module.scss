@@ -1,0 +1,11 @@
+@use '../../styles/constants/sizes.module.scss' as size;
+@use '../../styles/constants/colors' as colors;
+
+.layoutContainer {
+  width: 100%;
+  max-width: size.$LAYOUT_MAX_WIDTH;
+  padding-right: size.$LAYOUT_PADDING_HORIZONTAL;
+  padding-left: size.$LAYOUT_PADDING_HORIZONTAL;
+  margin: 0 auto;
+  background-color: colors.$C_BG_DEFAULT;
+}
