@@ -3,10 +3,11 @@
 
 .header {
   @include flex(space-between, center);
-  position: sticky;
+  position: fixed;
   top: 0;
   left: 0;
   z-index: 1000;
+  box-sizing: border-box;
   width: 100%;
   background-color: rgba(colors.$C_BG_DEFAULT, 0.5);
 

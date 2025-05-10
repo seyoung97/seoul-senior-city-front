@@ -4,8 +4,16 @@
 .layoutContainer {
   width: 100%;
   max-width: size.$LAYOUT_MAX_WIDTH;
+  height: 100vh;
   padding-right: size.$LAYOUT_PADDING_HORIZONTAL;
   padding-left: size.$LAYOUT_PADDING_HORIZONTAL;
   margin: 0 auto;
+  overflow-y: scroll;
   background-color: colors.$C_BG_DEFAULT;
+
+  .mainContainer {
+    box-sizing: border-box;
+    padding-top: 56px;
+    padding-bottom: 80px;
+  }
 }

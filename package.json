@@ -45,6 +45,7 @@
     "react-router-dom": "^6.7.0",
     "react-transition-group": "^4.4.5",
     "recoil": "^0.7.6",
+    "swiper": "^11.2.6",
     "vite-plugin-svgr": "^2.4.0",
     "yup": "^0.32.11"
   },

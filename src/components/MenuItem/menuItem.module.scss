@@ -1,0 +1,25 @@
+@use '@/styles/mixins/flexbox' as *;
+@use '@/styles/constants/colors' as colors;
+@use 'src/styles/mixins' as m;
+
+.wrapper {
+  @include flex(flex-start, center);
+  width: 100%;
+  padding: 16px 0;
+  background-color: colors.$C_WHITE;
+  border-radius: 15px;
+
+  .iconWrapper {
+    width: 110px;
+    height: 110px;
+
+    .icon {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .label {
+    @include m.fontH3('bold');
+  }
+}

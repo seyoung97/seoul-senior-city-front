@@ -9,7 +9,9 @@ const Layout = () => {
   return (
     <div className={styles.layoutContainer}>
       <Header />
-      <Outlet />
+      <div className={styles.mainContainer}>
+        <Outlet />
+      </div>
       <Footer />
     </div>
   );

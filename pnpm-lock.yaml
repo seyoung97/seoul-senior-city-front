@@ -77,6 +77,9 @@ importers:
       recoil:
         specifier: ^0.7.6
         version: 0.7.7(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      swiper:
+        specifier: ^11.2.6
+        version: 11.2.6
       vite-plugin-svgr:
         specifier: ^2.4.0
         version: 2.4.0(rollup@3.29.5)(vite@4.5.14(@types/node@18.19.100)(sass@1.87.0))
@@ -2936,6 +2939,10 @@ packages:
 
   svg-tags@1.0.0:
     resolution: {integrity: sha512-ovssysQTa+luh7A5Weu3Rta6FJlFBBbInjOh722LIt6klpU2/HtdUbszju/G4devcvk8PGt7FCLv5wftu3THUA==}
+
+  swiper@11.2.6:
+    resolution: {integrity: sha512-8aXpYKtjy3DjcbzZfz+/OX/GhcU5h+looA6PbAzHMZT6ESSycSp9nAjPCenczgJyslV+rUGse64LMGpWE3PX9Q==}
+    engines: {node: '>= 4.7.0'}
 
   table@6.9.0:
     resolution: {integrity: sha512-9kY+CygyYM6j02t5YFHbNz2FN5QmYGv9zAjVp4lCDjlCw7amdckXlEt/bjMhUIfj4ThGRE4gCUH5+yGnNuPo5A==}
@@ -6172,6 +6179,8 @@ snapshots:
   svg-parser@2.0.4: {}
 
   svg-tags@1.0.0: {}
+
+  swiper@11.2.6: {}
 
   table@6.9.0:
     dependencies:
