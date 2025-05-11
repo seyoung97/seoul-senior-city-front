@@ -2,10 +2,12 @@ import { createBrowserRouter, createRoutesFromElements, Route } from 'react-rout
 
 import Layout from '@/components/Layout';
 import MainPage from '@/pages/MainPage';
+import MapPage from '@/pages/MapPage';
 
 const router = (
   <Route element={<Layout />}>
     <Route index element={<MainPage />} />
+    <Route path="map" element={<MapPage />} />
   </Route>
 );
 
