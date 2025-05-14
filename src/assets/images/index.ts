@@ -4,6 +4,6 @@ import bannerBlue from './banner3.png';
 import checklist from './checkList3d.png';
 import heart from './heart3d.png';
 import map from './map3d.png';
+import trophy from './trophy.png';
 
-export { bannerBlue, bannerGreen, bannerOrange, checklist, heart, map };
-
+export { bannerBlue, bannerGreen, bannerOrange, checklist, heart, map, trophy };

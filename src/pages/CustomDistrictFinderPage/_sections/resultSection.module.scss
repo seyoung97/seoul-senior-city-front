@@ -1,0 +1,69 @@
+@use '@/styles/mixins/flexbox' as *;
+@use '@/styles/constants/colors' as colors;
+
+.wrapper {
+  width: 100%;
+  height: 100vh;
+  padding: 60px 16px;
+  background-color: colors.$C_BG_DEFAULT;
+
+  >ul {
+    @include flex(center, flex-start, column);
+    gap: 8px;
+    width: 100%;
+
+    .first {
+      @include flex(flex-start, center);
+      width: 100%;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      margin-bottom: 20px;
+      background-color: colors.$C_WHITE;
+      border-radius: 8px;
+
+      .imgWrapper {
+        width: 150px;
+        height: 150px;
+
+        >img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+
+      >p {
+        font-size: 26px;
+        line-height: 130%;
+
+        >span {
+          font-size: 26px;
+          font-weight: 700;
+        }
+      }
+    }
+
+    .elseWrapper {
+      width: 100%;
+      padding: 30px 10px 0;
+      background-color: colors.$C_WHITE;
+      border-radius: 8px;
+
+      .else {
+        width: 100%;
+        padding-bottom: 30px;
+
+        >p {
+          font-size: 20px;
+          font-weight: 500;
+
+          >span {
+            padding-right: 20px;
+            font-weight: 800;
+            color: colors.$C_GREEN_80;
+          }
+        }
+      }
+    }
+  }
+}

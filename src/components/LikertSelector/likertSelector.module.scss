@@ -1,0 +1,39 @@
+@use '@/styles/mixins/flexbox' as *;
+@use '@/styles/constants/colors' as colors;
+
+.wrapper {
+  width: 100%;
+
+  .dots {
+    @include flex(space-between, center);
+    padding: 0 15px 10px;
+
+    .dot {
+      width: 60px;
+      height: 60px;
+      color: colors.$C_GREEN_90;
+      background-color: colors.$C_WHITE;
+      border: 1px solid colors.$C_GREEN_80;
+      border-radius: 50%;
+
+      &:active {
+        color: colors.$C_WHITE;
+        background-color: colors.$C_GREEN_90;
+        transform: scale(0.95); // 누른 느낌
+      }
+
+      &:focus-visible {
+        outline: 2px solid colors.$C_GREEN_80;
+      }
+    }
+  }
+
+  .labels {
+    @include flex(space-between, center);
+    padding: 0 22px 10px;
+
+    >span {
+      font-size: 18px;
+    }
+  }
+}

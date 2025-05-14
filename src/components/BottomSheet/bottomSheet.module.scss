@@ -1,0 +1,45 @@
+@use '@/styles/mixins/flexbox' as *;
+@use '@/styles/constants/colors' as colors;
+@use '../../styles/constants/sizes.module.scss' as size;
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  background-color: rgba(0, 0, 0, 50%);
+}
+
+.sheet {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  touch-action: none; // Prevents default scrolling when dragging
+  background-color: #ffffff;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 10%);
+  transition: height 0.3s ease;
+}
+
+.handle {
+  width: 36px;
+  height: 4px;
+  margin: 12px auto 8px;
+  background-color: #cccccc;
+  border-radius: 2px;
+}
+
+.content {
+  flex-grow: 1;
+  padding: 16px;
+  overflow-y: auto;
+  overscroll-behavior: contain; // Prevent drag interaction while scrolling
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-overflow-scrolling: touch;
+}

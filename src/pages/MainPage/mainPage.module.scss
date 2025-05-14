@@ -1,10 +1,15 @@
+@use '../../styles/constants/sizes.module.scss' as size;
 @use 'src/styles/constants' as c;
 @use 'src/styles/mixins' as m;
 
 .wrapper {
   width: 100%;
   min-height: 100vh;
-  padding-top: 30px;
+  padding-top: 80px;
+  padding-right: size.$LAYOUT_PADDING_HORIZONTAL;
+  padding-bottom: 100px;
+  /* stylelint-disable-next-line declaration-block-no-redundant-longhand-properties */
+  padding-left: size.$LAYOUT_PADDING_HORIZONTAL;
 
   > h2 {
     @include m.fontH2('regular');
