@@ -1,8 +1,30 @@
+// export interface ResponseDTO<T> {
+//   cause: string | null;
+//   data: T;
+//   error: string | null;
+//   message: string | null;
+//   status: number;
+//   timeStamp: Date;
+// }
+
 export interface ResponseDTO<T> {
-  cause: string | null;
-  data: T;
-  error: string | null;
-  message: string | null;
-  status: number;
-  timeStamp: Date;
+  result: T;
+}
+
+export interface RecommendParams {
+  safety: number;
+  walk: number;
+  relation: number;
+  welfare: number;
+  culture: number;
+  transport: number;
+  medical: number;
+  social: number;
+  nature: number;
+  air: number;
+}
+
+export interface RecommendResponse {
+  district: string;
+  score: number;
 }

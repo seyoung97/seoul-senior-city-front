@@ -2,10 +2,14 @@ const PREFIX = 'VITE_';
 
 const getConfig = (name: string) => {
   const configName = `${PREFIX}${name}`;
-  if (configName in import.meta.env) {
-    return process.env[configName];
+  const value = import.meta.env[configName as keyof ImportMetaEnv];
+
+  if (value !== undefined) {
+    return value;
   } else {
-    throw Error('잘못된 CONFIG 입니다', { cause: `NOT FOUND ${name} CONFIG` });
+    throw new Error('잘못된 CONFIG 입니다', {
+      cause: `NOT FOUND ${name} CONFIG`,
+    });
   }
 };
 

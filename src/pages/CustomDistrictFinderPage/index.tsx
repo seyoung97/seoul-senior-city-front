@@ -1,6 +1,7 @@
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 
 import { questions } from '@/data/questions';
+import { useRecommendMutation } from '@/hooks/mutations/useRecommendMutation';
 import { currentQuestionIndexState, isSubmittedState } from '@/recoil/customDistrictFinder';
 
 import QuestionStepSection from './_sections/QuestionStepSection';
@@ -11,9 +12,11 @@ const CustomDistrictFinderPage = () => {
   const currentIndex = useRecoilValue(currentQuestionIndexState);
   const isSubmitted = useRecoilValue(isSubmittedState);
   const setSubmitted = useSetRecoilState(isSubmittedState);
+  const { mutate, data } = useRecommendMutation();
 
   const handleSubmit = () => {
     // TODO: 여기서 백엔드에 전송
+    mutate({ safety: -5, walk: -3, relation: 3 });
     setSubmitted(true);
   };
 
