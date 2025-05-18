@@ -2,6 +2,7 @@
 @use '@/styles/constants/colors' as colors;
 
 .wrapper {
+  @include flex(space-between, center, column);
   width: 100%;
   height: 100vh;
   padding: 60px 16px;
@@ -65,5 +66,16 @@
         }
       }
     }
+  }
+
+  .button {
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
+    font-weight: 600;
+    color: colors.$C_WHITE;
+    text-align: center;
+    background-color: colors.$C_PRIMARY_DEFAULT;
+    border-radius: 8px;
   }
 }

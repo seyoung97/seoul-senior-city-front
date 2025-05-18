@@ -11,14 +11,14 @@
     .dot {
       width: 60px;
       height: 60px;
-      color: colors.$C_GREEN_90;
+      color: #09a56f;
       background-color: colors.$C_WHITE;
-      border: 1px solid colors.$C_GREEN_80;
+      border: 1px solid #09a56f;
       border-radius: 50%;
 
       &:active {
         color: colors.$C_WHITE;
-        background-color: colors.$C_GREEN_90;
+        background-color: #09a56f;
         transform: scale(0.95); // 누른 느낌
       }
 

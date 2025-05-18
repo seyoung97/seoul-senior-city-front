@@ -18,12 +18,12 @@
     }
 
     >button {
-      width: 250px;
+      width: 100%;
       height: 50px;
       font-size: 20px;
       font-weight: 600;
       color: colors.$C_WHITE;
-      background-color: colors.$C_GREEN_70;
+      background-color: colors.$C_PRIMARY_DEFAULT;
       border: none;
       border-radius: 8px;
     }

@@ -1,5 +1,6 @@
 import { useRecoilState, useSetRecoilState } from 'recoil';
 
+import ProgressBar from '@/components/ProgressBar/ProgressBar';
 import { questions } from '@/data/questions';
 import { currentQuestionIndexState, responsesState } from '@/recoil/customDistrictFinder/atoms';
 
@@ -22,8 +23,11 @@ const QuestionStepSection = () => {
     }, 150);
   };
 
+  console.log(currentIndex);
+
   return (
     <section className={styles.wrapper}>
+      <ProgressBar value={currentIndex} max={10} className={styles.progressBar} />
       <h2>{current.text}</h2>
       <LikertSelector value={0} onChange={handleSelect} />
     </section>

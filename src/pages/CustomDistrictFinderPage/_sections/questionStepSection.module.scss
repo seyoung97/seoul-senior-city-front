@@ -8,11 +8,22 @@
   padding: 20px 0;
   background-color: colors.$C_WHITE;
 
+  .progressBar {
+    position: fixed;
+    top: 16px;
+    left: 50%;
+    width: 90%;
+    max-width: 480px;
+    transform: translateX(-50%);
+  }
+
   >h2 {
     width: 100%;
     padding-bottom: 30px;
     font-size: 36px;
     font-weight: 500;
+    line-height: 150%;
     text-align: center;
+    white-space: pre-line;
   }
 }
