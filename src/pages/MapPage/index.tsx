@@ -12,11 +12,6 @@ import { MapModeOption, MapResponse } from '@/services/types';
 
 import styles from './mapPage.module.scss';
 
-interface SelectedDistrict {
-  district: string;
-  info: string;
-}
-
 interface MetricData {
   name: string;
   selectedDistrict: number;
@@ -96,7 +91,7 @@ const MapPage = () => {
       <BottomSheet isOpen={Boolean(selectedDistrict)} onClose={() => setSelectedDistrict(null)}>
         {selectedDistrict && (
           <>
-            <div>
+            <div className={styles.bottom}>
               <h3 style={{ margin: '0 0 8px' }}>{selectedDistrict.district}</h3>
               <p style={{ fontSize: '14px', color: '#333' }}>{selectedDistrict.info}</p>
             </div>
@@ -113,7 +108,7 @@ const MapPage = () => {
                 <Bar dataKey="average" fill="#B0B8C1" name="전체 평균">
                   <LabelList dataKey="average" position="right" />
                 </Bar>
-                <Bar dataKey="selectedDistrict" fill="#00CD80" name="선택된 자치구">
+                <Bar dataKey="selectedDistrict" fill="#00CD80" name={selectedDistrict.district}>
                   <LabelList dataKey="selectedDistrict" position="right" />
                 </Bar>
               </BarChart>

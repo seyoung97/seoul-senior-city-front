@@ -3,6 +3,7 @@
 @use '../../styles/constants/sizes.module.scss' as size;
 
 .wrapper {
+  position: relative;
   width: 100%;
   height: 100vh;
 
@@ -27,6 +28,21 @@
       background-color: #2ecc71;
       border-radius: 12px;
       box-shadow: 0 1px 6px rgba(0, 0, 0, 10%);
+    }
+  }
+
+  .bottom {
+    width: 100%;
+    padding-bottom: 20px;
+    border-bottom: 1px solid colors.$C_BG_DEFAULT;
+
+    > h3 {
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    > p {
+      font-size: 16px;
     }
   }
 }

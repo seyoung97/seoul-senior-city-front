@@ -46,13 +46,13 @@ export const CATEGORY_OPTIONS: SelectOption[] = [
     value: 'hospital',
     label: '병원 접근성이 좋은 자치구',
     mode: 'category',
-    category: '병원',
+    category: '병원접근성',
   },
   {
     value: 'welfare',
     label: '노인복지시설이 많은 자치구',
     mode: 'category',
-    category: '복지시설',
+    category: '노인복지시설',
   },
   {
     value: 'culture',
@@ -82,6 +82,6 @@ export const CATEGORY_OPTIONS: SelectOption[] = [
     value: 'greenSpace',
     label: '공원과 나무가 많은 자치구',
     mode: 'category',
-    category: '녹지',
+    category: '자연환경',
   },
 ];

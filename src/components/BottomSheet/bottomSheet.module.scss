@@ -3,20 +3,22 @@
 @use '../../styles/constants/sizes.module.scss' as size;
 
 .overlay {
-  position: fixed;
+  position: absolute;
   inset: 0;
   z-index: 999;
+  max-width: 480px;
   background-color: rgba(0, 0, 0, 50%);
 }
 
 .sheet {
-  position: fixed;
+  position: absolute;
   right: 0;
   bottom: 0;
   left: 0;
   z-index: 1000;
   display: flex;
   flex-direction: column;
+  max-width: 480px;
   overflow: hidden;
   touch-action: none; // Prevents default scrolling when dragging
   background-color: #ffffff;
