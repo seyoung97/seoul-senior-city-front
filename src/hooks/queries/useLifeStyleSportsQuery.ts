@@ -5,7 +5,7 @@ import { getLifeStyleSports } from '@/services/lifeStyle';
 
 export const useLifeStyleSportsQuery = () => {
   return useQuery({
-    queryKey: LIFESTYLE_QUERY_KEY.sposrts(),
+    queryKey: LIFESTYLE_QUERY_KEY.sports(),
     queryFn: getLifeStyleSports,
   });
 };

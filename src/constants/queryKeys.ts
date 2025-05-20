@@ -10,5 +10,10 @@ export const LIFESTYLE_QUERY_KEY = {
   hospital: () => [...LIFESTYLE_QUERY_KEY.all, 'hospital'] as const,
   community: () => [...LIFESTYLE_QUERY_KEY.all, 'community'] as const,
   culture: () => [...LIFESTYLE_QUERY_KEY.all, 'culture'] as const,
-  sposrts: () => [...LIFESTYLE_QUERY_KEY.all, 'sports'] as const,
+  sports: () => [...LIFESTYLE_QUERY_KEY.all, 'sports'] as const,
+};
+
+export const MAP_DISTRICT_QUERY_KEY = {
+  all: ['mapDistrict'] as const,
+  byCategory: (category: string) => [...MAP_DISTRICT_QUERY_KEY.all, 'category', category] as const,
 };

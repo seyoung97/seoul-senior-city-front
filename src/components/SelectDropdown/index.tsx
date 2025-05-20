@@ -5,6 +5,8 @@ import styles from './selectDropdown.module.scss';
 export interface SelectOption {
   value: string;
   label: string;
+  mode: string;
+  category?: string;
 }
 
 interface SelectDropdownProps {

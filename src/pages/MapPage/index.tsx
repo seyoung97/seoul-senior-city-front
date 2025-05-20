@@ -4,18 +4,13 @@ import { CustomOverlayMap, Map, MapMarker, useKakaoLoader } from 'react-kakao-ma
 import { Bar, BarChart, LabelList, Legend, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
 
 import BottomSheet from '@/components/BottomSheet';
+import Footer from '@/components/Footer';
 import SelectDropdown from '@/components/SelectDropdown';
 import { CATEGORY_OPTIONS } from '@/constants/mapCategoryOptions';
+import { useMapDistrictQuery } from '@/hooks/queries/useMapDistrictQuery';
+import { MapModeOption, MapResponse } from '@/services/types';
 
 import styles from './mapPage.module.scss';
-
-interface District {
-  district: string;
-  rank: number;
-  lat: number;
-  lng: number;
-  info: string;
-}
 
 interface SelectedDistrict {
   district: string;
@@ -27,20 +22,6 @@ interface MetricData {
   selectedDistrict: number;
   average: number;
 }
-
-const rankData: District[] = [
-  { district: '강남구', rank: 1, lat: 37.5172, lng: 127.0473, info: '강남구는 안전하고 편의시설이 많아요.' },
-  { district: '마포구', rank: 2, lat: 37.5635, lng: 126.9084, info: '마포구는 공원이 많고 대중교통이 편리해요.' },
-  {
-    district: '성동구',
-    rank: 3,
-    lat: 37.5633,
-    lng: 127.0365,
-    info: '성동구는 보행자 친화적이고 복지시설이 잘 돼 있어요.',
-  },
-  { district: '광진구', rank: 4, lat: 37.5384, lng: 127.0823, info: '광진구는 문화시설이 풍부해요.' },
-  { district: '용산구', rank: 5, lat: 37.5323, lng: 126.9901, info: '용산구는 병원 접근성이 좋아요.' },
-];
 
 const data: MetricData[] = [
   { name: '치안', selectedDistrict: 12, average: 9.5 },
@@ -59,7 +40,22 @@ const MapPage = () => {
   useKakaoLoader({ appkey: import.meta.env.VITE_KAKAO_MAP_API_KEY });
 
   const [selectedCategory, setSelectedCategory] = useState('top');
-  const [selectedDistrict, setSelectedDistrict] = useState<SelectedDistrict | null>(null);
+  const [selectedDistrict, setSelectedDistrict] = useState<MapResponse | null>(null);
+
+  const selectedOption = CATEGORY_OPTIONS.find((opt) => opt.value === selectedCategory);
+
+  let modeOption: MapModeOption = 'friendly';
+
+  if (selectedOption?.mode === 'friendly' || selectedOption?.mode === 'unfriendly') {
+    modeOption = selectedOption.mode;
+  } else if (selectedOption?.mode === 'category') {
+    modeOption = {
+      mode: 'category',
+      category: selectedOption.category,
+    };
+  }
+  const { data: districtData, isLoading } = useMapDistrictQuery(modeOption);
+  console.log(districtData);
 
   return (
     <main className={styles.wrapper}>
@@ -67,10 +63,14 @@ const MapPage = () => {
         <SelectDropdown value={selectedCategory} onChange={setSelectedCategory} options={CATEGORY_OPTIONS} />
       </div>
       <Map center={{ lat: 37.5665, lng: 126.978 }} level={9} className={styles.map}>
-        {rankData.map(({ lat, lng, rank, district, info }) => (
+        {districtData?.data?.map(({ latitude, longitude, rank, district, info, metricData }) => (
           <>
-            <MapMarker key={district} position={{ lat, lng }} onClick={() => setSelectedDistrict({ district, info })} />
-            <CustomOverlayMap position={{ lat, lng }} yAnchor={3}>
+            <MapMarker
+              key={district}
+              position={{ lat: longitude, lng: latitude }}
+              onClick={() => setSelectedDistrict({ latitude, longitude, rank, district, info, metricData })}
+            />
+            <CustomOverlayMap position={{ lat: longitude, lng: latitude }} yAnchor={3}>
               <div className={styles.mapMarker}>
                 {rank}위 {district}
               </div>
@@ -100,16 +100,20 @@ const MapPage = () => {
               <h3 style={{ margin: '0 0 8px' }}>{selectedDistrict.district}</h3>
               <p style={{ fontSize: '14px', color: '#333' }}>{selectedDistrict.info}</p>
             </div>
-            <ResponsiveContainer width="100%" height={250}>
-              <BarChart layout="vertical" data={data} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
+            <ResponsiveContainer width="100%" height={'100%'}>
+              <BarChart
+                layout="vertical"
+                data={selectedDistrict.metricData}
+                margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
+              >
                 <XAxis type="number" />
                 <YAxis type="category" dataKey="name" />
                 <Tooltip />
                 <Legend />
-                <Bar dataKey="average" fill="#f08080" name="전체 평균">
+                <Bar dataKey="average" fill="#B0B8C1" name="전체 평균">
                   <LabelList dataKey="average" position="right" />
                 </Bar>
-                <Bar dataKey="selectedDistrict" fill="#6495ed" name="선택된 자치구">
+                <Bar dataKey="selectedDistrict" fill="#00CD80" name="선택된 자치구">
                   <LabelList dataKey="selectedDistrict" position="right" />
                 </Bar>
               </BarChart>
@@ -117,6 +121,7 @@ const MapPage = () => {
           </>
         )}
       </BottomSheet>
+      <Footer />
     </main>
   );
 };
