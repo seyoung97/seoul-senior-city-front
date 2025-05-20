@@ -8,6 +8,7 @@ import svgr from 'vite-plugin-svgr';
 
 /** @type {import('vite').UserConfig} */
 export default defineConfig({
+  base: '/',
   server: {
     port: 3000,
   },
