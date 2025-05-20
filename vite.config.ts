@@ -31,7 +31,7 @@ export default defineConfig({
     devSourcemap: true,
   },
   build: {
-    outDir: 'build',
+    outDir: 'dist',
     emptyOutDir: true,
     reportCompressedSize: true,
     rollupOptions: {
