@@ -1,6 +1,6 @@
 import { ReactNode, useEffect, useRef, useState } from 'react';
 
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion, PanInfo } from 'framer-motion';
 
 import styles from './bottomSheet.module.scss';
 
@@ -58,7 +58,7 @@ export default function BottomSheet({ isOpen, onClose, children }: BottomSheetPr
               const scrollTop = contentRef.current?.scrollTop ?? 0;
               setIsDragging(scrollTop <= 0); // scroll이 맨 위일 때만 드래그 가능
             }}
-            onDragEnd={(e, info) => {
+            onDragEnd={(e: MouseEvent, info: PanInfo) => {
               if (info.offset.y > 100) {
                 onClose(); // 아래로 드래그 → 닫힘
               } else if (info.offset.y < -50) {
@@ -73,7 +73,7 @@ export default function BottomSheet({ isOpen, onClose, children }: BottomSheetPr
             animate={{ y: 0 }}
             exit={{ y: '100%' }}
             transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-            onClick={(e) => e.stopPropagation()}
+            onClick={(e: React.MouseEvent) => e.stopPropagation()}
           >
             <div className={styles.handle} />
             <div className={styles.content} ref={contentRef}>
