@@ -12,19 +12,6 @@ import { MapModeOption, MapResponse } from '@/services/types';
 
 import styles from './mapPage.module.scss';
 
-interface MetricData {
-  name: string;
-  selectedDistrict: number;
-  average: number;
-}
-
-const data: MetricData[] = [
-  { name: '치안', selectedDistrict: 12, average: 9.5 },
-  { name: '병원접근성', selectedDistrict: 18, average: 14.2 },
-  { name: '보행환경', selectedDistrict: 15, average: 13.8 },
-  { name: '노인일자리', selectedDistrict: 7, average: 6.4 },
-];
-
 declare global {
   interface Window {
     kakao: any;
@@ -49,7 +36,7 @@ const MapPage = () => {
       category: selectedOption.category,
     };
   }
-  const { data: districtData, isLoading } = useMapDistrictQuery(modeOption);
+  const { data: districtData } = useMapDistrictQuery(modeOption);
   console.log(districtData);
 
   return (
