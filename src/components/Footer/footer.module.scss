@@ -6,15 +6,18 @@
   @include flex(flex-start, center);
   position: fixed;
   bottom: 0;
-  left: 0;
+  left: 50%;
   box-sizing: border-box;
   width: 100%;
+  max-width: size.$LAYOUT_MAX_WIDTH;
   height: 70px;
   padding-bottom: 10px;
   background-color: colors.$C_WHITE;
+  border-top: 1px solid colors.$C_BG_DEFAULT;
   border-top-left-radius: 21px;
   border-top-right-radius: 21px;
   box-shadow: rgba(149, 157, 165, 5%) 0 8px 24px;
+  transform: translateX(-50%);
 
   .nav {
     @include flex(space-between, center);

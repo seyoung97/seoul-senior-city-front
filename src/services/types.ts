@@ -28,3 +28,16 @@ export interface RecommendResponse {
   district: string;
   score: number;
 }
+
+export interface LifeStyleResponseDTO<T> {
+  title: string;
+  unit: string;
+  category: string;
+  items: T;
+}
+
+export interface LifeStyleResponse {
+  rank: number;
+  name: string;
+  score: number;
+}

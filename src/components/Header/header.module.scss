@@ -5,12 +5,14 @@
   @include flex(space-between, center);
   position: fixed;
   top: 0;
-  left: 0;
+  left: 50%;
   z-index: 1000;
   box-sizing: border-box;
   width: 100%;
+  max-width: 480px;
   background: linear-gradient(to bottom, rgba(colors.$C_BG_DEFAULT, 1) 0%, rgba(colors.$C_BG_DEFAULT, 0.7) 60%, rgba(colors.$C_BG_DEFAULT, 0));
   backdrop-filter: blur(12px);
+  transform: translateX(-50%);
 
   .logoWrapper {
     @include flex(flex-start,center);
