@@ -17,3 +17,9 @@ export const MAP_DISTRICT_QUERY_KEY = {
   all: ['mapDistrict'] as const,
   byCategory: (category: string) => [...MAP_DISTRICT_QUERY_KEY.all, 'category', category] as const,
 };
+
+export const RANKING_QUERY_KEY = {
+  all: ['ranking'] as const,
+  district: () => [...RANKING_QUERY_KEY.all, 'district'] as const,
+  category: () => [...RANKING_QUERY_KEY.all, 'category'] as const,
+};

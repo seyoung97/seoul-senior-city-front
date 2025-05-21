@@ -62,3 +62,13 @@ export interface MetricScore {
   selectedDistrict: number;
   average: number;
 }
+
+export interface RankingDistrictResponse {
+  district: string;
+  count: number;
+}
+
+export interface RankingCategoryResponse {
+  category: string;
+  score: number;
+}

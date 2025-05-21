@@ -10,6 +10,8 @@ import LifeStyleSportsPage from '@/pages/LifeStylePage/LifeStyleSportsPage';
 import LifeStyleWalkPage from '@/pages/LifeStylePage/LifeStyleWalkPage';
 import MainPage from '@/pages/MainPage';
 import MapPage from '@/pages/MapPage';
+import RankingCategoryPage from '@/pages/RankingCategoryPage';
+import RankingDistrictPage from '@/pages/RankingDistrictPage';
 
 const router = (
   <Route element={<Layout />}>
@@ -23,6 +25,8 @@ const router = (
     <Route path="life-style-community" element={<LifeStyleCommunityPage />} />
     <Route path="life-style-culture" element={<LifeStyleCulturePage />} />
     <Route path="life-style-sports" element={<LifeStyleSportsPage />} />
+    <Route path="ranking-district" element={<RankingDistrictPage />} />
+    <Route path="ranking-category" element={<RankingCategoryPage />} />
   </Route>
 );
 
