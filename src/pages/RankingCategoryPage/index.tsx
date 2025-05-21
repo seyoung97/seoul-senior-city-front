@@ -42,6 +42,18 @@ const RankingCategoryPage = () => {
               {data[2].category}
             </p>
           </li>
+          <li>
+            <p>
+              <span>4위</span>
+              {data[3].category}
+            </p>
+          </li>
+          <li>
+            <p>
+              <span>5위</span>
+              {data[4].category}
+            </p>
+          </li>
         </ul>
       </main>
       <Footer />

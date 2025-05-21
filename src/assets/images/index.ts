@@ -3,7 +3,7 @@ import bannerOrange from './banner2.png';
 import bannerBlue from './banner3.png';
 import bus from './bus.png';
 import checklist from './checkList3d.png';
-import column from './column2.png';
+import column from './column3.png';
 import communityIcon from './communityicon.png';
 import heart from './heart3d.png';
 import hospitalIcon from './hospitalicon.png';
