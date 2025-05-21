@@ -1,6 +1,7 @@
 import { column } from '@/assets/images';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
+import Loading from '@/components/Loading/Loading';
 import { useRankingCategoryQuery } from '@/hooks/queries/useRankingCategoryQuery';
 
 import styles from './rankingCategoryPage.module.scss';
@@ -9,7 +10,7 @@ const RankingCategoryPage = () => {
   const { data, isLoading, isError } = useRankingCategoryQuery();
 
   if (isLoading) {
-    return <p className={styles.status}>걷기 지수를 불러오는 중입니다...</p>;
+    return <Loading />;
   }
 
   if (isError || !data) {

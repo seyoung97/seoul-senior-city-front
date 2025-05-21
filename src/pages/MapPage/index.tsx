@@ -5,6 +5,7 @@ import { Bar, BarChart, LabelList, Legend, ResponsiveContainer, Tooltip, XAxis, 
 
 import BottomSheet from '@/components/BottomSheet';
 import Footer from '@/components/Footer';
+import Loading from '@/components/Loading/Loading';
 import SelectDropdown from '@/components/SelectDropdown';
 import { CATEGORY_OPTIONS } from '@/constants/mapCategoryOptions';
 import { useMapDistrictQuery } from '@/hooks/queries/useMapDistrictQuery';
@@ -36,8 +37,15 @@ const MapPage = () => {
       category: selectedOption.category,
     };
   }
-  const { data: districtData } = useMapDistrictQuery(modeOption);
-  console.log(districtData);
+  const { data: districtData, isLoading, isError } = useMapDistrictQuery(modeOption);
+
+  if (isLoading) {
+    return <Loading />;
+  }
+
+  if (isError || !districtData) {
+    return <p className={styles.status}>데이터를 불러오지 못했어요.</p>;
+  }
 
   return (
     <main className={styles.wrapper}>

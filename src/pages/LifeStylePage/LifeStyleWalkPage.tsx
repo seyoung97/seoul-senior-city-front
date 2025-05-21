@@ -1,6 +1,7 @@
 import { trophy } from '@/assets/images';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
+import Loading from '@/components/Loading/Loading';
 import { useLifeStyleWalkQuery } from '@/hooks/queries/useLifeStyleWalkQuery';
 
 import styles from './lifeStyleWalkPage.module.scss';
@@ -8,7 +9,7 @@ import styles from './lifeStyleWalkPage.module.scss';
 const LifeStyleWalkPage = () => {
   const { data, isLoading, isError } = useLifeStyleWalkQuery();
   if (isLoading) {
-    return <p className={styles.status}>걷기 지수를 불러오는 중입니다...</p>;
+    return <Loading />;
   }
 
   if (isError || !data) {
